@@ -1,0 +1,134 @@
+======================================================================
+POMATO SENSITIVITY ANALYSIS
+FBMC vs ATC - Swedish Electricity Market
+======================================================================
+
+======================================================================
+BASE CASE (Real Dec 2024 Prices)
+======================================================================
+
+  Running FBMC optimization...
+  Running ATC optimization...
+
+  Results:
+    FBMC Total: -71,113,028 EUR
+    ATC Total:  -66,745,767 EUR
+    Savings:    4,367,261 EUR (6.54%)
+
+======================================================================
+Setting up Scenario A: High Continental Prices (+30%)
+======================================================================
+  DE: 113.25 -> 147.22 EUR/MWh (+30%)
+  PL: 141.34 -> 183.74 EUR/MWh (+30%)
+  DK1: 96.26 -> 125.14 EUR/MWh (+30%)
+  DK2: 98.70 -> 128.31 EUR/MWh (+30%)
+  LT: 107.81 -> 140.15 EUR/MWh (+30%)
+
+  Running FBMC optimization...
+  Running ATC optimization...
+
+  Results:
+    FBMC Total: -94,687,006 EUR (gen: 31,348,923, import: -126,035,929)
+    ATC Total:  -90,281,719 EUR (gen: 31,402,300, import: -121,684,019)
+    Savings:    4,405,287 EUR (4.88%)
+
+======================================================================
+Setting up Scenario B: Low Norwegian Prices (-30%)
+======================================================================
+  NO1: 61.37 -> 42.96 EUR/MWh (-30%)
+  NO3: 24.22 -> 16.95 EUR/MWh (-30%)
+  NO4: 7.15 -> 5.00 EUR/MWh (-30%)
+
+  Running FBMC optimization...
+  Running ATC optimization...
+
+  Results:
+    FBMC Total: -68,725,610 EUR (gen: 28,962,988, import: -97,688,599)
+    ATC Total:  -65,726,537 EUR (gen: 28,393,060, import: -94,119,597)
+    Savings:    2,999,074 EUR (4.56%)
+
+======================================================================
+Setting up Scenario C: Price Convergence (60 EUR/MWh)
+======================================================================
+
+  All prices set to 60.0 EUR/MWh
+
+  Running FBMC optimization...
+  Running ATC optimization...
+
+  Results:
+    FBMC Total: -28,073,637 EUR (gen: 37,352,454, import: -65,426,091)
+    ATC Total:  -28,073,637 EUR (gen: 37,352,454, import: -65,426,091)
+    Savings:    0 EUR (0.00%)
+
+======================================================================
+Setting up Scenario D: Reduced SE2-SE3 Capacity (-30%)
+======================================================================
+  L_SE2_SE3: 7300 -> 5110 MW (-30%)
+
+  Running FBMC optimization...
+  Running ATC optimization...
+
+  Results:
+    FBMC Total: -57,903,616 EUR (gen: 32,273,629, import: -90,177,245)
+    ATC Total:  -49,886,819 EUR (gen: 32,519,649, import: -82,406,467)
+    Savings:    8,016,797 EUR (16.07%)
+
+======================================================================
+Setting up Scenario E: Increased Cross-Border Capacity (+20%)
+======================================================================
+  L_NO4_SE1: 600 -> 720 MW (+20%)
+  L_NO3_SE2: 1000 -> 1200 MW (+20%)
+  L_NO1_SE3: 2145 -> 2574 MW (+20%)
+  L_FI_SE1: 1500 -> 1800 MW (+20%)
+  L_FI_SE3: 1200 -> 1440 MW (+20%)
+  L_DK1_SE3: 740 -> 888 MW (+20%)
+  L_DK2_SE4: 1700 -> 2040 MW (+20%)
+  L_PL_SE4: 600 -> 720 MW (+20%)
+  L_LT_SE4: 700 -> 840 MW (+20%)
+  L_DE_SE4: 615 -> 738 MW (+20%)
+
+  Running FBMC optimization...
+  Running ATC optimization...
+
+  Results:
+    FBMC Total: -80,686,731 EUR (gen: 33,962,103, import: -114,648,834)
+    ATC Total:  -75,620,774 EUR (gen: 32,982,313, import: -108,603,087)
+    Savings:    5,065,957 EUR (6.70%)
+
+  Saved: results/sensitivity_results.csv
+
+Creating sensitivity_comparison.png...
+  Saved: results/sensitivity_comparison.png
+
+Creating SENSITIVITY_ANALYSIS_REPORT.md...
+  Saved: results/SENSITIVITY_ANALYSIS_REPORT.md
+
+======================================================================
+SENSITIVITY ANALYSIS COMPLETE
+======================================================================
+
+  Summary Table:
+
+  Scenario   Description                         Savings         %         
+  ----------------------------------------------------------------------
+  Base       Real Dec 2024 Prices                   4,367,261 EUR     6.54%
+  A          High Continental Prices (+30%)         4,405,287 EUR     4.88%
+  B          Low Norwegian Prices (-30%)            2,999,074 EUR     4.56%
+  C          Price Convergence (60 EUR/MWh)                 0 EUR     0.00%
+  D          Reduced SE2-SE3 Capacity (-30%)        8,016,797 EUR    16.07%
+  E          Increased Cross-Border Capacity (+2    5,065,957 EUR     6.70%
+
+  Output Files:
+    - results/sensitivity_results.csv
+    - results/sensitivity_comparison.png
+    - results/SENSITIVITY_ANALYSIS_REPORT.md
+    - scenarios/scenario_*/data/ (modified data files)
+
+  Validation Checks:
+    [ ] Base case files preserved
+    [x] All scenarios have data directories
+    [x] All 5 scenarios completed
+    [x] Results are valid
+
+======================================================================

@@ -1,0 +1,208 @@
+======================================================================
+POMATO EXTENDED NORDIC NETWORK ANALYSIS
+FBMC vs ATC with Cross-Border Connections
+Swedish Electricity Market - Dec 2-8, 2024
+======================================================================
+
+Loading input data...
+  Demand: 672 records (Swedish zones only)
+  Plants: 26 plants (Swedish zones only)
+  Availability: 4368 records
+  Nodes: 13 zones (4 Swedish + 9 neighbors)
+  Lines: 13 corridors
+
+Network topology:
+  Internal Swedish lines: 3
+  Cross-border lines: 10
+
+Line capacities:
+  L_SE1_SE2: 3300 MW (internal, ac)
+  L_SE2_SE3: 7300 MW (internal, ac)
+  L_SE3_SE4: 5300 MW (internal, ac)
+  L_NO4_SE1: 600 MW (cross-border, ac)
+  L_NO3_SE2: 1000 MW (cross-border, ac)
+  L_NO1_SE3: 2145 MW (cross-border, ac)
+  L_FI_SE1: 1500 MW (cross-border, dc)
+  L_FI_SE3: 1200 MW (cross-border, dc)
+  L_DK1_SE3: 740 MW (cross-border, dc)
+  L_DK2_SE4: 1700 MW (cross-border, ac)
+  L_PL_SE4: 600 MW (cross-border, dc)
+  L_LT_SE4: 700 MW (cross-border, dc)
+  L_DE_SE4: 615 MW (cross-border, dc)
+
+Neighbor prices (EUR/MWh) - from ENTSO-E day-ahead:
+  NO1: 61.37 - ENTSO-E A44 Dec 2-8 2024 - Southern Norway
+  NO3: 24.22 - ENTSO-E A44 Dec 2-8 2024 - Central Norway
+  NO4: 7.15 - ENTSO-E A44 Dec 2-3 2024 (partial) - Northern Norway hydro surplus
+  FI: 59.08 - ENTSO-E A44 Dec 2-8 2024 - Finland
+  DK1: 96.26 - ENTSO-E A44 Dec 2-8 2024 - West Denmark
+  DK2: 98.70 - ENTSO-E A44 Dec 2-8 2024 - East Denmark
+  PL: 141.34 - ENTSO-E A44 Dec 2-8 2024 - Poland coal-dominated
+  LT: 107.81 - ENTSO-E A44 Dec 2-8 2024 - Lithuania
+  DE: 113.25 - ENTSO-E A44 Dec 2-8 2024 - Germany (DE-LU zone)
+
+======================================================================
+STEP 1B: Network Loop Analysis
+======================================================================
+
+Number of independent loops: 1
+
+Identified loops:
+  Loop 1: SE2 -> SE1 -> FI -> SE3 -> SE2
+
+Network statistics:
+  Nodes: 13
+  Edges: 13
+  Connected: True
+
+======================================================================
+STEP 2: Calculating Extended PTDF Matrix
+======================================================================
+
+Nodes (13): ['SE1', 'SE2', 'SE3', 'SE4', 'NO1', 'NO3', 'NO4', 'FI', 'DK1', 'DK2', 'PL', 'LT', 'DE']
+Lines (13): ['L_SE1_SE2', 'L_SE2_SE3', 'L_SE3_SE4', 'L_NO4_SE1', 'L_NO3_SE2', 'L_NO1_SE3', 'L_FI_SE1', 'L_FI_SE3', 'L_DK1_SE3', 'L_DK2_SE4', 'L_PL_SE4', 'L_LT_SE4', 'L_DE_SE4']
+Slack bus: SE3 (index 2)
+  B matrix inverted successfully
+
+PTDF Matrix (Lines × Zones):
+             SE1    SE2  SE3  SE4  NO1    NO3    NO4     FI  DK1  DK2   PL   LT   DE
+index                                                                               
+L_SE1_SE2  0.817 -0.129  0.0  0.0  0.0 -0.129  0.817  0.408  0.0  0.0  0.0  0.0  0.0
+L_SE2_SE3  0.817  0.871  0.0  0.0  0.0  0.871  0.817  0.408  0.0  0.0  0.0  0.0  0.0
+L_SE3_SE4  0.000  0.000  0.0 -1.0  0.0  0.000  0.000  0.000  0.0 -1.0 -1.0 -1.0 -1.0
+L_NO4_SE1  0.000  0.000  0.0  0.0  0.0  0.000  1.000  0.000  0.0  0.0  0.0  0.0  0.0
+L_NO3_SE2 -0.000  0.000  0.0  0.0  0.0  1.000  0.000  0.000  0.0  0.0  0.0  0.0  0.0
+L_NO1_SE3  0.000  0.000  0.0  0.0  1.0  0.000  0.000  0.000  0.0  0.0  0.0  0.0  0.0
+L_FI_SE1  -0.183 -0.129  0.0  0.0  0.0 -0.129 -0.183  0.408  0.0  0.0  0.0  0.0  0.0
+L_FI_SE3   0.183  0.129  0.0  0.0  0.0  0.129  0.183  0.592  0.0  0.0  0.0  0.0  0.0
+L_DK1_SE3  0.000  0.000  0.0  0.0  0.0  0.000  0.000  0.000  1.0  0.0  0.0  0.0  0.0
+L_DK2_SE4  0.000  0.000  0.0 -0.0  0.0  0.000  0.000  0.000  0.0  1.0  0.0  0.0  0.0
+L_PL_SE4   0.000  0.000  0.0 -0.0  0.0  0.000  0.000  0.000  0.0 -0.0  1.0  0.0  0.0
+L_LT_SE4   0.000  0.000  0.0 -0.0  0.0  0.000  0.000  0.000  0.0 -0.0 -0.0  1.0  0.0
+L_DE_SE4   0.000  0.000  0.0 -0.0  0.0  0.000  0.000  0.000  0.0 -0.0  0.0  0.0  1.0
+
+Non-trivial PTDF entries (not 0 or ±1): 20
+  This indicates loop flows are present - FBMC can provide benefits!
+
+Saved: results/ptdf_matrix_extended.csv
+
+======================================================================
+STEP 3: Running Extended FBMC Scenario
+======================================================================
+
+Optimization setup:
+  Swedish plants: 26
+  Neighbor zones: 9
+  Total decision variables: 35
+
+  Swedish generation cost: 31,348,922.70 EUR
+  Net import cost: -102,461,950.67 EUR
+  Total system cost: -71,113,027.97 EUR
+  LP failures (fell back to merit order): 0
+  Saved: fbmc_extended_*.csv files
+
+======================================================================
+STEP 4: Running Extended ATC Scenario
+======================================================================
+
+  Swedish generation cost: 31,402,299.63 EUR
+  Net import cost: -98,148,066.62 EUR
+  Total system cost: -66,745,766.99 EUR
+  LP failures (fell back to merit order): 0
+  Saved: atc_extended_*.csv files
+
+======================================================================
+STEP 5: Comparing Results
+======================================================================
+
+--- Cost Comparison ---
+
+| Metric | FBMC | ATC | Difference |
+|--------|------|-----|------------|
+| Swedish gen cost (EUR) | 31,348,923 | 31,402,300 | 53,377 |
+| Net import cost (EUR) | -102,461,951 | -98,148,067 | 4,313,884 |
+| Total system cost (EUR) | -71,113,028 | -66,745,767 | 4,367,261 |
+| Cost savings (%) | - | - | 0.00% |
+
+--- Line Utilization ---
+
+| Line | FBMC Util% | ATC Util% | FBMC Cong Hrs | ATC Cong Hrs |
+|------|------------|-----------|---------------|--------------|
+| L_DE_SE4 | 100.0 | 100.0 | 168 | 168 |
+| L_DK1_SE3 | 100.0 | 98.9 | 168 | 159 |
+| L_DK2_SE4 | 99.3 | 99.3 | 160 | 160 |
+| L_FI_SE1 | 23.6 | 99.4 | 0 | 161 |
+| L_FI_SE3 | 99.8 | 0.0 | 166 | 0 |
+| L_LT_SE4 | 100.0 | 100.0 | 168 | 168 |
+| L_NO1_SE3 | 74.4 | 58.7 | 83 | 49 |
+| L_NO3_SE2 | 93.7 | 48.1 | 141 | 33 |
+| L_NO4_SE1 | 100.0 | 100.0 | 168 | 168 |
+| L_PL_SE4 | 100.0 | 100.0 | 168 | 168 |
+| L_SE1_SE2 | 19.1 | 41.0 | 0 | 0 |
+| L_SE2_SE3 | 88.0 | 99.7 | 0 | 160 |
+| L_SE3_SE4 | 18.6 | 84.6 | 0 | 9 |
+
+--- Cross-Border Flows (Average MW) ---
+
+| Neighbor | FBMC Avg | ATC Avg | Direction |
+|----------|----------|---------|-----------|
+| NO1 | -1409.8 | -673.7 | Export |
+| NO3 | +936.9 | +326.0 | Import |
+| NO4 | +600.0 | +600.0 | Import |
+| FI | -1398.2 | -1490.5 | Export |
+| DK1 | -740.0 | -732.2 | Export |
+| DK2 | -1688.0 | -1688.0 | Export |
+| PL | -600.0 | -600.0 | Export |
+| LT | -700.0 | -700.0 | Export |
+| DE | -615.0 | -615.0 | Export |
+
+--- Zonal Prices ---
+
+| Zone | FBMC Price | ATC Price | Spread |
+|------|------------|-----------|--------|
+| SE1 | 29.92 | 6.64 | -23.28 |
+| SE2 | 29.07 | 7.66 | -21.41 |
+| SE3 | 39.08 | 42.14 | +3.07 |
+| SE4 | 46.73 | 48.12 | +1.40 |
+
+Saved: results/fbmc_vs_atc_extended_summary.csv
+
+======================================================================
+STEP 6: Generating Visualizations
+======================================================================
+
+1. Creating network_topology_extended.png...
+  Saved: network_topology_extended.png
+
+2. Creating price_timeseries_extended.png...
+  Saved: price_timeseries_extended.png
+
+3. Creating cross_border_flows.png...
+  Saved: cross_border_flows.png
+
+4. Creating fbmc_vs_atc_extended.png...
+  Saved: fbmc_vs_atc_extended.png
+
+All visualizations saved to results/
+
+======================================================================
+STEP 7: Creating Final Report
+======================================================================
+
+Saved report to: /Users/simonpalmborg/python_projects/fbmc-vs-atc-nordic/results/december_2024/EXTENDED_NETWORK_ANALYSIS.md
+
+======================================================================
+EXTENDED NETWORK ANALYSIS COMPLETE
+======================================================================
+
+  FBMC Total Cost: -71,113,028 EUR
+  ATC Total Cost:  -66,745,767 EUR
+  Savings:         4,367,261 EUR (0.00%)
+
+  NOTE: FBMC and ATC show similar costs.
+  Possible reasons:
+  - Network may still be effectively radial
+  - Cross-border capacities may not create significant loop flows
+  - Generation pattern may not benefit from parallel path optimization
+
+======================================================================

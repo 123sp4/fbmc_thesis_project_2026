@@ -1,0 +1,27 @@
+index,node,g_max,mc_el,plant_type,zone,source
+SE1_hydro,SE1,5346,0.5,hydro,SE1,SVK Kraftbalansen 2024 Tabell 3
+SE1_wind,SE1,3023,0.0,wind,SE1,SVK Kraftbalansen 2024 Tabell 3
+SE1_chp_district,SE1,149,40.0,chp,SE1,SVK Kraftbalansen 2024 Tabell 3
+SE1_chp_industry,SE1,117,35.0,chp,SE1,SVK Kraftbalansen 2024 Tabell 3
+SE1_gasturbine,SE1,1,80.0,gasturbine,SE1,SVK Kraftbalansen 2024 Tabell 3
+SE1_solar,SE1,29,0.0,solar,SE1,SVK Kraftbalansen 2024 Tabell 3
+SE2_hydro,SE2,8128,0.5,hydro,SE2,SVK Kraftbalansen 2024 Tabell 3
+SE2_wind,SE2,6907,0.0,wind,SE2,SVK Kraftbalansen 2024 Tabell 3
+SE2_chp_district,SE2,232,40.0,chp,SE2,SVK Kraftbalansen 2024 Tabell 3
+SE2_chp_industry,SE2,529,35.0,chp,SE2,SVK Kraftbalansen 2024 Tabell 3
+SE2_gasturbine,SE2,2,80.0,gasturbine,SE2,SVK Kraftbalansen 2024 Tabell 3
+SE2_solar,SE2,204,0.0,solar,SE2,SVK Kraftbalansen 2024 Tabell 3
+SE3_hydro,SE3,2595,0.5,hydro,SE3,SVK Kraftbalansen 2024 Tabell 3
+SE3_nuclear,SE3,6937,10.0,nuclear,SE3,SVK Kraftbalansen 2024 Tabell 3
+SE3_wind,SE3,3901,0.0,wind,SE3,SVK Kraftbalansen 2024 Tabell 3
+SE3_chp_district,SE3,2001,40.0,chp,SE3,SVK Kraftbalansen 2024 Tabell 3
+SE3_chp_industry,SE3,525,35.0,chp,SE3,SVK Kraftbalansen 2024 Tabell 3
+SE3_gasturbine,SE3,904,80.0,gasturbine,SE3,SVK Kraftbalansen 2024 Tabell 3
+SE3_solar,SE3,1863,0.0,solar,SE3,SVK Kraftbalansen 2024 Tabell 3
+SE4_hydro,SE4,347,0.5,hydro,SE4,SVK Kraftbalansen 2024 Tabell 3
+SE4_wind,SE4,2421,0.0,wind,SE4,SVK Kraftbalansen 2024 Tabell 3
+SE4_chp_district,SE4,460,40.0,chp,SE4,SVK Kraftbalansen 2024 Tabell 3
+SE4_chp_industry,SE4,415,35.0,chp,SE4,SVK Kraftbalansen 2024 Tabell 3
+SE4_gasturbine,SE4,635,80.0,gasturbine,SE4,SVK Kraftbalansen 2024 Tabell 3
+SE4_condensing,SE4,662,50.0,condensing,SE4,SVK Kraftbalansen 2024 Tabell 3
+SE4_solar,SE4,1877,0.0,solar,SE4,SVK Kraftbalansen 2024 Tabell 3

@@ -1,0 +1,80 @@
+======================================================================
+POMATO JULY 2024 ANALYSIS
+FBMC vs ATC - Summer Week Comparison
+Swedish Electricity Market - July 15-21, 2024
+======================================================================
+
+Loading input data from periods/july_2024/data/...
+  Demand: 168 timesteps × 4 zones = 672 records
+  Plants: 26 plants
+  Availability: 168 timesteps
+  Nodes: 13 zones
+  Lines: 13 corridors
+
+Neighbor prices (EUR/MWh) - July 2024:
+  NO1: 25.06
+  NO3: 22.17
+  NO4: 6.54
+  FI: 16.89
+  DK1: 67.08
+  DK2: 67.53
+  PL: 124.12
+  LT: 100.61
+  DE: 70.76
+
+Total Swedish demand: 1,822,299 MWh
+Mean hourly demand: 10,847 MW
+
+======================================================================
+Calculating PTDF Matrix
+======================================================================
+  PTDF matrix: 13 lines × 13 nodes
+
+======================================================================
+Running FBMC Market Clearing
+======================================================================
+
+  Swedish generation cost: 8,443,389.41 EUR
+  Net import cost: -57,909,490.06 EUR
+  Total system cost: -49,466,100.65 EUR
+  LP failures: 0
+
+======================================================================
+Running ATC Market Clearing
+======================================================================
+
+  Swedish generation cost: 8,443,389.41 EUR
+  Net import cost: -57,784,639.43 EUR
+  Total system cost: -49,341,250.02 EUR
+  LP failures: 0
+
+======================================================================
+RESULTS SUMMARY - July 15-21, 2024
+======================================================================
+
+Metric                                         FBMC             ATC            Diff
+--------------------------------------------------------------------------------
+Swedish Gen Cost (EUR)                    8,443,389       8,443,389              +0
+Net Import Cost (EUR)                   -57,909,490     -57,784,639        -124,851
+Total System Cost (EUR)                 -49,466,101     -49,341,250        -124,851
+--------------------------------------------------------------------------------
+FBMC Savings (EUR)                                -               -         124,851
+FBMC Savings (%)                                  -               -          -0.25%
+
+SE2-SE3 Line Utilization
+  FBMC: 52.8%
+  ATC:  87.8%
+
+Saved: periods/july_2024/results/summary.csv
+
+======================================================================
+THREE-PERIOD COMPARISON
+======================================================================
+
+Metric                            Dec 2024 (Base)  Jan 2024 (Winter)  Jul 2024 (Summer)
+-------------------------------------------------------------------------------------
+FBMC Savings (EUR)                     4,367,261         6,357,506           124,851
+SE2-SE3 Congestion (%)                      88.0%              90.6%              52.8%
+Mean Demand (MW)                           17,500             20,094             10,847
+NO4 Price (EUR/MWh)                          7.15              16.20               6.54
+Solar Availability                          0.1%              0.1%              9.0%

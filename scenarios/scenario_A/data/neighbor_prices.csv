@@ -1,0 +1,10 @@
+zone,price,rationale
+NO1,61.37,ENTSO-E A44 Dec 2-8 2024 - Southern Norway
+NO3,24.22,ENTSO-E A44 Dec 2-8 2024 - Central Norway
+NO4,7.15,ENTSO-E A44 Dec 2-3 2024 (partial) - Northern Norway hydro surplus
+FI,59.08,ENTSO-E A44 Dec 2-8 2024 - Finland
+DK1,125.14,ENTSO-E A44 Dec 2-8 2024 - West Denmark
+DK2,128.31,ENTSO-E A44 Dec 2-8 2024 - East Denmark
+PL,183.74,ENTSO-E A44 Dec 2-8 2024 - Poland coal-dominated
+LT,140.15,ENTSO-E A44 Dec 2-8 2024 - Lithuania
+DE,147.22,ENTSO-E A44 Dec 2-8 2024 - Germany (DE-LU zone)

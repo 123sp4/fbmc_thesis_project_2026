@@ -1,0 +1,14 @@
+index,zone,slack,voltage,lat,lon
+SE1,SE1,False,400.0,66.0,20.0
+SE2,SE2,False,400.0,62.5,17.0
+SE3,SE3,True,400.0,59.0,18.0
+SE4,SE4,False,400.0,56.0,14.0
+NO1,NO1,False,400.0,60.0,10.5
+NO3,NO3,False,400.0,63.5,10.0
+NO4,NO4,False,400.0,69.0,19.0
+FI,FI,False,400.0,62.0,25.0
+DK1,DK1,False,400.0,56.0,9.5
+DK2,DK2,False,400.0,55.5,12.0
+PL,PL,False,400.0,54.5,18.0
+LT,LT,False,400.0,55.5,24.0
+DE,DE,False,400.0,54.0,10.0

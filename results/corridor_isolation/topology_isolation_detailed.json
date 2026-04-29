@@ -1,0 +1,54 @@
+{
+  "experiment": "Corridor Isolation Experiment",
+  "date": "2026-04-28T21:25:23.044951",
+  "hypothesis": "FBMC benefits arise primarily from loop flows through Norwegian interconnections",
+  "norwegian_lines_removed": [
+    "L_NO4_SE1",
+    "L_NO3_SE2",
+    "L_NO1_SE3"
+  ],
+  "norwegian_zones_removed": [
+    "NO1",
+    "NO3",
+    "NO4"
+  ],
+  "results": {
+    "baseline": {
+      "fbmc_gen_cost": 33669145.857466154,
+      "fbmc_import_cost": -90368311.05727516,
+      "fbmc_total": -56699165.19980901,
+      "atc_gen_cost": 32636228.02499998,
+      "atc_import_cost": -82977887.62599999,
+      "atc_total": -50341659.60100001,
+      "fbmc_savings": 6357505.598808996,
+      "fbmc_savings_pct": 12.62871675109159,
+      "lp_failures_fbmc": 0,
+      "lp_failures_atc": 0
+    },
+    "isolated": {
+      "fbmc_gen_cost": 31754632.33062458,
+      "fbmc_import_cost": -76346693.14835735,
+      "fbmc_total": -44592060.817732766,
+      "atc_gen_cost": 30821731.83999999,
+      "atc_import_cost": -71104685.51909992,
+      "atc_total": -40282953.67909993,
+      "fbmc_savings": 4309107.138632834,
+      "fbmc_savings_pct": 10.697098263845868,
+      "lp_failures_fbmc": 0,
+      "lp_failures_atc": 0
+    },
+    "analysis": {
+      "loop_flow_contribution_eur": 2048398.4601761624,
+      "loop_flow_contribution_pct": 32.22015975196161,
+      "remaining_fbmc_benefit_eur": 4309107.138632834,
+      "remaining_fbmc_benefit_pct": 67.77984024803838,
+      "baseline_savings_pct": 12.62871675109159,
+      "isolated_savings_pct": 10.697098263845868,
+      "savings_reduction": 1.9316184872457214
+    },
+    "verdict": {
+      "conclusion": "SUPPORTED",
+      "explanation": "Loop flows account for significant portion of FBMC benefits"
+    }
+  }
+}
